@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('lessons_id')->constrained('lessons')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
