@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Certificate::class, 'user_id');
     }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }

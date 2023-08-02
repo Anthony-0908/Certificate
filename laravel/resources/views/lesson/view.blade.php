@@ -4,7 +4,7 @@
 @section('content')
 
 <h1 class="text-center">Certificates</h1>
-<div class="container mt-5 bg-white">
+<div class="container mt-5 ">
     <div class="table-responsive shadow p-3 bg-white rounded ">
         <table id="myTable">
             <thead>
@@ -14,7 +14,7 @@
                     <th>Position </th>
                     <th>Time duration</th>
                     <th>date given</th>
-                    <th> Name signature</th>
+                    <th>Name signature</th>
                 </tr>
             </thead>
 
@@ -37,4 +37,12 @@
     </div>
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+
+<script>
+   $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 @endsection

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class certificates extends Model
 {
     use HasFactory;
+    public $timestamps = true; 
 
     public function lesson()
     {

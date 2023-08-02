@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\LessonsController;
+use App\Http\Controllers\UserController;
+use App\Models\certificates;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('lesson', LessonsController::class);
+Route::resource('certificate',CertificateController::class);
+Route::resource('user', UserController::class);
+
+Route::get('/download-pdf', [CertificateController::class , 'generatePDF'])->name('download-pdf');
+Route::get('/users', [UserController::class, 'lessons']);
 
 Auth::routes();
 
