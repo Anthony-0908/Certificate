@@ -39,6 +39,12 @@ class UserController extends Controller
         //
     }
 
+    public function certificate(Request $request)
+    {
+        $lesson = lessons::findorfail($request->lesson_id);
+
+    }
+
     /**
      * Display the specified resource.
      */
@@ -50,16 +56,16 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $users)
+    public function edit(User $user)
     {
         //
-        return view('users.edit',compact('users'));
+        return view('users.edit',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $users)
+    public function update(Request $request, User $user)
     {
         //
 
@@ -67,15 +73,17 @@ class UserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string',
             'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        $users->udpate([
+        $user->update([
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
             'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
         ]);
 
-        return redirect()->route('users.idnex')->with('success', 'User is successfully updated');
+        return redirect()->route('user.index')->with('success', 'User is successfully updated');
     }
 
     /**

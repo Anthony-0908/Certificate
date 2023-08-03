@@ -8,17 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class certificates extends Model
 {
     use HasFactory;
-    public $timestamps = true; 
+    public $timestamps = true;
 
-    public function lesson()
-    {
-        return $this->belongsTo(lessons::class, 'lessons_id');
-    }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
+    protected $fillable = [
+       
+        'lessons_id',
+    ];
+    // public function lesson()
+    // {
+    //     return $this->belongsTo(lessons::class, 'id');
+    // }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class,'id');
+    // }
 }
 
 

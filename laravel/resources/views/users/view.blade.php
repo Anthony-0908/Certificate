@@ -38,7 +38,7 @@
                         {{-- <form action={{  }} method="POST" style="dislay:inline;">
 
                         </form> --}}
-
+{{--
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Open Modal
                         </button>
@@ -69,10 +69,10 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="button" name="create" class="btn btn-primary">Create</button>
                                         </div>
-                                        </form>
+                                        </form> --}}
 
 
-                                  
+
                                 </div>
                             </div>
                         </div>
@@ -93,6 +93,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
    $(document).ready( function () {
     $('#myTable').DataTable();

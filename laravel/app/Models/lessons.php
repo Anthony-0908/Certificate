@@ -9,8 +9,8 @@ class lessons extends Model
 {
     use HasFactory;
 
-    public function certificates()
-    {
-        return $this->hasMany(certificates::class, 'lessons_id');
-    }
+    // public function certificates()
+    // {
+    //     return $this->hasMany(certificates::class, 'lessons_id');
+    // }
 }

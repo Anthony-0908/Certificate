@@ -66,7 +66,7 @@ class CertificateController extends Controller
         ]);
 
 
-        return redirect()->back()->with('success', 'User created successfully.');
+        return redirect()->back()->with('success', 'Certificate created successfully.');
 
 
     }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('title' , 'Certificate Generator')
 @section('content')
@@ -37,4 +37,4 @@
     </div>
 
 </div>
-@endsection
+@endsection --}}
