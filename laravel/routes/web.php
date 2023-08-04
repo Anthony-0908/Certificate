@@ -24,8 +24,9 @@ Route::resource('lesson', LessonsController::class);
 Route::resource('certificate',CertificateController::class);
 // User Controller
 Route::resource('user', UserController::class);
-Route::put('users/{id}/update', [UserController::class , 'update'])->name('user.update');
+// Route::put('users/{id}/update', [UserController::class , 'update'])->name('user.update');
 Route::get('/download-pdf', [CertificateController::class , 'generatePDF'])->name('download-pdf');
+Route::post('user/certificate',[UserController::class , 'certificate'])->name('user.certificate');
 
 
 Auth::routes();

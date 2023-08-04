@@ -38,7 +38,7 @@
                         {{-- <form action={{  }} method="POST" style="dislay:inline;">
 
                         </form> --}}
-{{--
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Open Modal
                         </button>
@@ -54,11 +54,12 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('certificate.store') }}" method="POST">
+                                        <form action="{{ route('user.certificate', $user->id) }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+
+                                            <input type="hidden" name="userid" value="{{ $user->id }}">
                                             <label for="lesson1">Select Title</label>
-                                            <select class="form-control" id="lesson1" name="lesson_id">
+                                            <select class="form-control" id="lesson1" name="lessonid">
                                                 <option value="">Select a lesson...</option>
                                                 @foreach ($lessons as $lesson)
                                                     <option value="{{ $lesson->id }}">{{ $lesson->lesson }}</option>
@@ -67,9 +68,9 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" name="create" class="btn btn-primary">Create</button>
+                                            <button type="submit" name="create" class="btn btn-primary">Create</button>
                                         </div>
-                                        </form> --}}
+                                        </form>
 
 
 

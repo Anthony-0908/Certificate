@@ -7,6 +7,7 @@
     <form action="{{ route('user.update', $user->id) }}" method="POST">
         @csrf
         @method('PUT')
+        {{-- <input type="text" value="{{ $user->id }}"> --}}
         <div class="form-group">
             <label for="title">FirstName</label>
             <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" required>
@@ -22,8 +23,8 @@
         </div>
         <div class="form-group">
             <label for="">Password</label>
-            <input type="password" name="password" class="form-control" value="{{ $user->password }}">
+            <input type="password" name="password" class="form-control" >
         </div>
-        <button type="submit" class="btn btn-primary">Update Task</button>
+        <button type="submit" name="edit"  class="btn btn-primary">Update Task</button>
     </form>
 @endsection

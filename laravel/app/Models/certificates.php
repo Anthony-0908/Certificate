@@ -12,8 +12,8 @@ class certificates extends Model
 
 
     protected $fillable = [
-       
-        'lessons_id',
+        'user_id',
+        'lesson_id',
     ];
     // public function lesson()
     // {

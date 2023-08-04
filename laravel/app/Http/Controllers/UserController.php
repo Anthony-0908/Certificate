@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\certificates;
 use App\Models\User;
 use App\Models\lessons;
 use Illuminate\Http\Request;
@@ -41,8 +42,15 @@ class UserController extends Controller
 
     public function certificate(Request $request)
     {
-        $lesson = lessons::findorfail($request->lesson_id);
+        $lessonID = $request->input('lessonid');
+        certificates::create([
+            'user_id' =>  $request->input('userid'),
 
+            'lesson_id' => $lessonID,
+        ]);
+
+
+       return redirect()->route('user.index')->with('success', 'certificate created successfully!');
     }
 
     /**
@@ -73,8 +81,10 @@ class UserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'sometimes|string|max:8',
         ]);
+
+
 
         $user->update([
             'first_name' => $validatedData['first_name'],
@@ -82,6 +92,8 @@ class UserController extends Controller
             'email' => $validatedData['email'],
             'password' => $validatedData['password'],
         ]);
+
+
 
         return redirect()->route('user.index')->with('success', 'User is successfully updated');
     }
@@ -93,6 +105,6 @@ class UserController extends Controller
     {
         //
         $user->delete();
-        return redirect()->route('users.index')->with('success','User is deleted');
+        return redirect()->route('user.index')->with('success','User is deleted');
     }
 }
