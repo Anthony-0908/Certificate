@@ -7,17 +7,18 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\certificates;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use PDF;
 
 class CertificateController extends Controller
 {
-    public function generatePDF()
+    public function generatePDF(certificates $id)
 {
     // Create a new Dompdf instance
     $pdf = new Dompdf();
+    $cert = certificates::find($id);
 
     // Load a view file (Blade or any other view format)
-    $pdf->loadHtml('<h1>Hello, World!</h1>
-    <h2>Hello world! </h2>');
+    $pdf = PDF::loadView('pdf.certificate', compact('cert'));
 
     // (Optional) Set paper size and orientation
     // $pdf->setPaper('A4', 'portrait');
@@ -36,8 +37,8 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        $certificates = certificates::with(['user', 'lesson']);
-        return view('certificates.index', compact('certificates'));
+        $certificates = certificates::all();
+        return view('certificate.view', compact('certificates'));
     }
 
     /**

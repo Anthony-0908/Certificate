@@ -4,8 +4,11 @@
     <title>Certificate</title>
 </head>
 <body>
-    <h1>Certificate</h1>
-    <p>Name: {{ $name }}</p>
-    <p>Lesson: {{ $lesson }}</p>
+    @foreach ($cert as $item)
+        <p>{{ $item->user->first_name. ' ' . $item->user->last_name }}</p>
+        <p>{{ $item->lesson->lesson }}</p>
+        <p>{{ $item->lesson->time_duration }}</p>
+        <p>{{ $item->lesson->speaker_name }}</p>
+    @endforeach
 </body>
 </html>

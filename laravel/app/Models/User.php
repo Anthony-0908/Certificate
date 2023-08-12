@@ -44,10 +44,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // public function certificates()
-    // {
-    //     return $this->hasMany(Certificate::class, 'user_id');
-    // }
+    public function certificates()
+    {
+        return $this->hasMany(Certificate::class, 'user_id');
+    }
 
     // public function lessons()
     // {

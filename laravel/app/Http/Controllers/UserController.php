@@ -53,6 +53,11 @@ class UserController extends Controller
        return redirect()->route('user.index')->with('success', 'certificate created successfully!');
     }
 
+    public function showCertificate()
+    {
+        
+    }
+
     /**
      * Display the specified resource.
      */
@@ -95,7 +100,7 @@ class UserController extends Controller
 
 
 
-        return redirect()->route('user.index')->with('success', 'User is successfully updated');
+        return view('users.view')->with('success', 'User is successfully updated');
     }
 
     /**

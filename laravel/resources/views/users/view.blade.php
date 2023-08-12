@@ -5,9 +5,12 @@
 
 <h1 class="text-center">Users</h1>
 <div class="container mt-5 ">
-    <a href="{{ route('download-pdf') }}" class="btn btn-primary">Download Certificate</a>
+    @if(session('message'))
+        <div class="alert alert-success">{{ session('message') }}</div>
+    @endif
+
     <div class="table-responsive shadow p-3 bg-white rounded ">
-        <table id="myTable">
+   <table id="myTable">
             <thead>
                 <tr>
                     <th>ID</th>
